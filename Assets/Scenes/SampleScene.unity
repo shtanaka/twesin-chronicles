@@ -503,8 +503,8 @@ MonoBehaviour:
   hiddenDialogTextComponent: {fileID: 1775290807}
   fullText: In a room, there is a key that is written "Don't use it". Alfred sees
     a chest near the toilet door. He can choose to open the chest or leave the room
-    by the door he came in. He suddenly Listen for footsteps outside. What Should
-    Alfred do?
+    by the door he came in. He suddenly Listen for footsteps outside. What action
+    should Alfred take?
   textDelay: 0.05
   displayedText: 
 --- !u!1 &1546467944

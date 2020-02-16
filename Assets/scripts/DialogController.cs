@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
 {
-    private static readonly int LONGEST_CHAR_WIDTH = 50;
-
     private RectTransform parentRect;
-    private float computedWidth = 0;
     
-    private bool isWidthOverflowing = false;
+    private float oldTextHeight;
+    private bool isNewLine = false;
     private bool isHeightOverflowing = false;
     
     [SerializeField] private Text dialogTextComponent;
@@ -28,30 +26,27 @@ public class DialogController : MonoBehaviour
 
     private void CheckHiddenTextHeight()
     {
-
         float parentHeight = parentRect.rect.height;
         float textHeight = LayoutUtility.GetPreferredHeight(hiddenDialogTextComponent.rectTransform);
-
         isHeightOverflowing = textHeight > parentHeight;
-    }
-
-    private void CheckHiddenTextWidth()
-    {
-        float parentWidth = parentRect.rect.width;
-        float textWidth = LayoutUtility.GetPreferredWidth(hiddenDialogTextComponent.rectTransform);
-        float calcWidth = textWidth - computedWidth;
-
-        isWidthOverflowing = calcWidth >= parentWidth - 5;
-
-        if (isWidthOverflowing)
+        
+        if (oldTextHeight == default)
         {
-            computedWidth += calcWidth - (calcWidth - parentWidth);
+            oldTextHeight = textHeight;
+        }
+
+        isNewLine = textHeight > oldTextHeight;
+        if (isNewLine)
+        {
+            oldTextHeight = textHeight;
         }
     }
 
     private void ClearDialogBox()
     {
+        isNewLine = false;
         displayedText = "";
+        oldTextHeight = default;
         dialogTextComponent.text = displayedText;
         hiddenDialogTextComponent.text = displayedText;
     }
@@ -65,10 +60,10 @@ public class DialogController : MonoBehaviour
     {
         displayedText += ' ';
 
-        CheckHiddenTextWidth();
-        if (isWidthOverflowing)
+        if (isNewLine)
         {
             displayedText += '\n';
+            isNewLine = false;
         }
 
         foreach (char character in word)
@@ -102,6 +97,7 @@ public class DialogController : MonoBehaviour
             {
                 yield return WaitForKeyPress(KeyCode.Return);
                 ClearDialogBox();
+                AddWordToHiddenDialogBox(word); 
             }
 
             yield return AddWordToDialogBox(word);
