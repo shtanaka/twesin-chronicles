@@ -17,11 +17,11 @@ public class DialogController : MonoBehaviour
     public string fullText = "";
     public float textDelay = 0.05f;
     public string displayedText = "";
-
-    void Start()
+    public bool hasFinishedDisplayingText = true;
+ 
+    private void Start()
     {
         parentRect = GetComponent<RectTransform>();
-        StartCoroutine(DisplayText());
     }
 
     private void CheckHiddenTextHeight()
@@ -47,6 +47,7 @@ public class DialogController : MonoBehaviour
         isNewLine = false;
         displayedText = "";
         oldTextHeight = default;
+        hasFinishedDisplayingText = false;
         dialogTextComponent.text = displayedText;
         hiddenDialogTextComponent.text = displayedText;
     }
@@ -86,6 +87,7 @@ public class DialogController : MonoBehaviour
 
     private IEnumerator DisplayText()
     {
+        hasFinishedDisplayingText = false;
         string[] words = fullText.Split(' ');
 
         foreach (string word in words)
@@ -101,6 +103,14 @@ public class DialogController : MonoBehaviour
             }
 
             yield return AddWordToDialogBox(word);
+            hasFinishedDisplayingText = true;
         }
+    }
+
+    public void DisplayStateText(string text)
+    {
+        fullText = text;
+        ClearDialogBox();
+        StartCoroutine(DisplayText());
     }
 }

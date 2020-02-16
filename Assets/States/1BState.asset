@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7a514f865f39247b573f88210c4a65, type: 3}
+  m_Name: 1BState
+  m_EditorClassIdentifier: 
+  storyText: "Alfred walks to the door and open it. But there's no one outside, despite
+    he still hear the footsteps. A voice in his head makes him close the door. He
+    knows there is something very wrong happening in that house, and fastly he moves
+    to get the key and walk to the chest.\r He puts the key in the role and open it.
+    A chill runs through his bones and he feels like he is being watched, but there
+    is nothing inside the chest. The footsteps stop suddenly, just like if no one
+    was in there."
+  nextStateA: {fileID: 0}
+  nextStateB: {fileID: 0}
