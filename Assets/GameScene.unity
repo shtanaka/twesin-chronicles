@@ -542,8 +542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 267.8}
-  m_SizeDelta: {x: 693.3, y: 88.3}
+  m_AnchoredPosition: {x: 3.2, y: 267.8}
+  m_SizeDelta: {x: 584.2, y: 88.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715871696
 MonoBehaviour:
@@ -576,7 +576,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Twesin Chronicles
+  m_Text: Twesin Dispair
 --- !u!222 &715871697
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -683,6 +683,7 @@ MonoBehaviour:
     Alfred take?'
   textDelay: 0.05
   displayedText: 
+  hasFinishedDisplayingText: 1
 --- !u!1 &1546467944
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028f6f3bf759a43519a62af6fdc69528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingState: {fileID: 11400000, guid: 4c26eee3c0097f6418e94ff899992d79, type: 2}
+  startingState: {fileID: 11400000, guid: 833d507b2f4d0de4d8eef65962f90eb8, type: 2}
   dialogBoxController: {fileID: 896056309}
 --- !u!1 &1775290805
 GameObject:

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be09baf6536581d41a69ac2ace9e1cb3, type: 3}
+  m_Name: A2 - Abrindo o Bau 2
+  m_EditorClassIdentifier: 
+  nextState: {fileID: 11400000, guid: 834aad3d13e0adb469941e5be396cd7f, type: 2}
+  nextStateA: {fileID: 0}
+  nextStateB: {fileID: 0}
+  storyText: "Alfred segura a chave firmemente e dirige-se ao Ba\xFA, consciente de
+    sua miss\xE3o. Ele coloca a chave no Ba\xFA, que se abre sem dificuldades. Os
+    passos no corredor estancam. Alfred se pergunta, quem ser\xE1 que est\xE1 no corredor?
+    Sente-se observado por algo sinistro. O medo o destroi por dentro. Sente uma energia
+    mal\xE9fica ao seu redor. Uma energia que nunca havia sentido em todos esses anos."

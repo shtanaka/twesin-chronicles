@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
@@ -12,28 +9,57 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         state = startingState;
-        Debug.Log(state.GetStateStory());
-        dialogBoxController.DisplayStateText(state.GetStateStory());
+        dialogBoxController.DisplayStateText(state.GetStoryText());
     }
 
     void Update()
     {
         if (dialogBoxController.hasFinishedDisplayingText)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            var stateType = state.GetStateType();
+            switch(stateType)
             {
-                state = state.GetNextStateByChoice(ChoiceEnum.OptionA);
-                Debug.Log(state.GetStateStory());
-                dialogBoxController.DisplayStateText(state.GetStateStory());
+                case StateTypeEnum.BinaryOptionState:
+                    ChangeStateWhenOptionIsSelected();
+                    break;
+                case StateTypeEnum.VoidState:
+                    ChangeStateWhenEnterIsPressed();
+                    break;
             }
+        }
+    }
 
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                state = state.GetNextStateByChoice(ChoiceEnum.OptionB);
-                Debug.Log(state.GetStateStory());
-                dialogBoxController.DisplayStateText(state.GetStateStory());
-            }
+    void ChangeBinaryState(ChoiceEnum selectedOption)
+    {
+        state = state.GetNextStateByChoice(selectedOption);
+        dialogBoxController.DisplayStateText(state.GetStoryText());
+    }
 
+    void ChangeVoidState()
+    {
+        state = state.GetNextState();
+        dialogBoxController.DisplayStateText(state.GetStoryText());
+    }
+
+    void ChangeStateWhenOptionIsSelected()
+    {
+         
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ChangeBinaryState(ChoiceEnum.OptionA);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            ChangeBinaryState(ChoiceEnum.OptionB);
+        }
+    }
+
+    void ChangeStateWhenEnterIsPressed()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            ChangeVoidState();
         }
     }
 }

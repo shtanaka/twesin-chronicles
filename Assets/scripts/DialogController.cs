@@ -103,8 +103,8 @@ public class DialogController : MonoBehaviour
             }
 
             yield return AddWordToDialogBox(word);
-            hasFinishedDisplayingText = true;
         }
+        hasFinishedDisplayingText = true;
     }
 
     public void DisplayStateText(string text)
