@@ -15,7 +15,7 @@ MonoBehaviour:
   storyText: "There is a key with a letter on the desk: \"Don't use it\". Alfred sees
     a red chest in the other side of the room. He can choose to open the chest or
     leave by the door he came in. He listen for footsteps outside. What action should
-    Alfred take?\n\nA) Take the key and open the chest\r\nB) Leave the room and check
+    Alfred take? A) Take the key and open the chest\r B) Leave the room and check
     whos coming"
   nextStateA: {fileID: 11400000, guid: aefdeadcc7e5641458426a3600190e65, type: 2}
   nextStateB: {fileID: 11400000, guid: 9bd1f2e54381a334f897b19c36777651, type: 2}

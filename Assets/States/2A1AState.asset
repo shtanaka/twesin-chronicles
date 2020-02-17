@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c7a514f865f39247b573f88210c4a65, type: 3}
-  m_Name: 1AState
+  m_Name: 2A1AState
   m_EditorClassIdentifier: 
-  storyText: "Alfred walks to the red Chest. He puts the key in the role and open
-    it. A chill runs through his spine and he feels like he is being watched, but
-    there is nothing inside the chest. The footsteps stop suddenly, just like if no
-    one was outside. Alfred knows there is something wrong happening in that house.\r"
+  storyText: 
   nextStateA: {fileID: 0}
   nextStateB: {fileID: 0}

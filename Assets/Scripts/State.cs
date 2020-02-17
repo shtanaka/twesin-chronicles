@@ -3,12 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ChoiceEnum
-{
-    OptionA,
-    OptionB
-}
-
 [CreateAssetMenu(menuName = "Dialog State")]
 public class State : ScriptableObject
 {
