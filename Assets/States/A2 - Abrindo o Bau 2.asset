@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09baf6536581d41a69ac2ace9e1cb3, type: 3}
   m_Name: A2 - Abrindo o Bau 2
   m_EditorClassIdentifier: 
-  nextState: {fileID: 11400000, guid: 834aad3d13e0adb469941e5be396cd7f, type: 2}
-  nextStateA: {fileID: 0}
-  nextStateB: {fileID: 0}
+  nextStates:
+  - {fileID: 11400000, guid: 834aad3d13e0adb469941e5be396cd7f, type: 2}
+  title: "Coloque a chave no ba\xFA e esque\xE7a o corredor"
   storyText: "Alfred segura a chave firmemente e dirige-se ao Ba\xFA, consciente de
     sua miss\xE3o. Ele coloca a chave no Ba\xFA, que se abre sem dificuldades. Os
     passos no corredor estancam. Alfred se pergunta, quem ser\xE1 que est\xE1 no corredor?

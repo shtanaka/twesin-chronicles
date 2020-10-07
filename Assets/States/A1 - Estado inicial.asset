@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09baf6536581d41a69ac2ace9e1cb3, type: 3}
   m_Name: A1 - Estado inicial
   m_EditorClassIdentifier: 
-  nextState: {fileID: 11400000, guid: a6f9e8a1f59a046489d53b7e05dca203, type: 2}
-  nextStateA: {fileID: 0}
-  nextStateB: {fileID: 0}
+  nextStates:
+  - {fileID: 11400000, guid: a6f9e8a1f59a046489d53b7e05dca203, type: 2}
   storyText: "Alfred entra no quarto e v\xEA a chave na escrivaninha. Retira do bolso
     a nota que recebera de Anna, sua irm\xE3, e a l\xEA: \"A megera os guarda no bau\".
     Localiza ent\xE3o o ba\xFA na parede \xE0 suas costas. Passos s\xE3o ouvidos no

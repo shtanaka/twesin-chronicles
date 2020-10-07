@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09baf6536581d41a69ac2ace9e1cb3, type: 3}
   m_Name: A2 - Conteudo
   m_EditorClassIdentifier: 
-  nextState: {fileID: 0}
-  nextStateA: {fileID: 0}
-  nextStateB: {fileID: 0}
+  nextStates: []
   storyText: "Pouco se encontrava no ba\xFA. Apenas uma pequena botija encostada no
     canto direito. Alfred a retira e analisa o que est\xE1 dentro. Dentes humanos
     frescos, aparentam ter sido tirados recentemente e n\xE3o aparentam marcas de

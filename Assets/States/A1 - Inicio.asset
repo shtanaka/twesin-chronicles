@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be09baf6536581d41a69ac2ace9e1cb3, type: 3}
   m_Name: A1 - Inicio
   m_EditorClassIdentifier: 
-  nextState: {fileID: 0}
-  nextStateA: {fileID: 11400000, guid: fae673e26c2d20c4ca34dc518c8e5686, type: 2}
-  nextStateB: {fileID: 11400000, guid: 1fcf19e90db2e0642a6fc1cd02f59d6e, type: 2}
+  nextStates:
+  - {fileID: 11400000, guid: fae673e26c2d20c4ca34dc518c8e5686, type: 2}
+  - {fileID: 11400000, guid: 1fcf19e90db2e0642a6fc1cd02f59d6e, type: 2}
   storyText: "Alfred pode pegar a Chave e abrir o Bau, ou sair do quarto e descobrir
     quem est\xE1 no corredor. Qual decis\xE3o ele deve tomar?"

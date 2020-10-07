@@ -2,64 +2,38 @@
 
 public class GameLogic : MonoBehaviour
 {
-    private State state;
-    [SerializeField] private State startingState;
+    private DialogBoxState currentDialogBoxState;
+    [SerializeField] private DialogBoxState startingState;
     [SerializeField] private DialogController dialogBoxController;
+    [SerializeField] private DialogOptionSelectorController dialogOptionSelectorController;
+     
+    private Vector2 hotSpot = Vector2.zero;
+    private CursorMode cursorMode = CursorMode.Auto;
+    public Texture2D defaultCursorTexture;
 
     void Start()
     {
-        state = startingState;
-        dialogBoxController.DisplayStateText(state.GetStoryText());
+        currentDialogBoxState = startingState;
+        dialogBoxController.DisplayState(currentDialogBoxState);
+        Cursor.SetCursor(defaultCursorTexture, hotSpot, cursorMode);
     }
 
     void Update()
     {
         if (dialogBoxController.hasFinishedDisplayingText)
         {
-            var stateType = state.GetStateType();
-            switch(stateType)
+            if (currentDialogBoxState.GetQuantityOfOptions() > 1)
             {
-                case StateTypeEnum.BinaryOptionState:
-                    ChangeStateWhenOptionIsSelected();
-                    break;
-                case StateTypeEnum.VoidState:
-                    ChangeStateWhenEnterIsPressed();
-                    break;
+                if (dialogOptionSelectorController.IsOptionConfirmed())
+                {
+                    currentDialogBoxState = dialogOptionSelectorController.GetSelectedState();
+                    dialogBoxController.DisplayState(currentDialogBoxState);
+                }
+                else if (!dialogOptionSelectorController.IsOpen()) 
+                {
+                    dialogOptionSelectorController.DisplayOptionsFromState(currentDialogBoxState);
+                }
             }
-        }
-    }
-
-    void ChangeBinaryState(ChoiceEnum selectedOption)
-    {
-        state = state.GetNextStateByChoice(selectedOption);
-        dialogBoxController.DisplayStateText(state.GetStoryText());
-    }
-
-    void ChangeVoidState()
-    {
-        state = state.GetNextState();
-        dialogBoxController.DisplayStateText(state.GetStoryText());
-    }
-
-    void ChangeStateWhenOptionIsSelected()
-    {
-         
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ChangeBinaryState(ChoiceEnum.OptionA);
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            ChangeBinaryState(ChoiceEnum.OptionB);
-        }
-    }
-
-    void ChangeStateWhenEnterIsPressed()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ChangeVoidState();
         }
     }
 }
