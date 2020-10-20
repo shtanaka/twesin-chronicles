@@ -13,12 +13,13 @@ public class DialogOptionSelectorController : MonoBehaviour
     private int selectedOptionIndex = -1;
     private DialogBoxState currentDialogBoxState;
     private string[] dialogBoxOptionTextList;
+    private Button[] optionButtons;
 
     [SerializeField] private Image GuiBG;
     [SerializeField] private Button DefaultOption;
     [SerializeField] private TextMeshProUGUI OptionCursor;
 
-    public float textDelay = 0.05f;
+    public float textDelay = 0.01f;
 
     public bool IsOptionConfirmed()
     {
@@ -41,7 +42,6 @@ public class DialogOptionSelectorController : MonoBehaviour
 
     public void DisplayOptionsFromState(DialogBoxState state)
     {
-        ClearDialogOptionSelectorBox();
         isOpen = true;
         currentDialogBoxState = state;
         StartCoroutine(StartDisplayStateOptionsRoutine());
@@ -53,6 +53,13 @@ public class DialogOptionSelectorController : MonoBehaviour
         isOpen = false;
         isOptionConfirmed = false;
         hasFinishedDisplayingOptions = false;
+        OptionCursor.gameObject.SetActive(false);
+        foreach (Button button in optionButtons)
+        {
+            button.gameObject.SetActive(false);
+            Destroy(button);
+        }
+        optionButtons = null;
     }
 
     private IEnumerator StartDisplayStateOptionsRoutine()
@@ -60,6 +67,7 @@ public class DialogOptionSelectorController : MonoBehaviour
         var options = currentDialogBoxState.GetNextStates();
         hasFinishedDisplayingOptions = false;
         dialogBoxOptionTextList = new string[options.Length];
+        optionButtons = new Button[options.Length];
         float topOffset = 0.0f;
         for (int optionIndex = 0; optionIndex < options.Length; optionIndex++) 
         {
@@ -68,7 +76,7 @@ public class DialogOptionSelectorController : MonoBehaviour
             string[] words = option.GetTitle().Split(' ');
             var defaultOptionComponent = DefaultOption.GetComponent<RectTransform>();
             var optionComponent = Instantiate(DefaultOption, Vector3.zero, Quaternion.identity) as Button;
-            // optionComponent.enabled = true;
+            optionButtons[optionIndex] = optionComponent;
             optionComponent.gameObject.SetActive(true);
 
 
@@ -77,13 +85,12 @@ public class DialogOptionSelectorController : MonoBehaviour
             var componentPosition = defaultOptionComponent.position;
             componentPosition.y += topOffset;
             optionComponentRectTransform.SetPositionAndRotation(componentPosition, defaultOptionComponent.rotation);
-            // option.onClick.AddListener(SpawnPlayer);
 
             foreach (string word in words)
             {
                 yield return AddWordToDialogOptionBox(word, optionComponent, optionIndex);
             }
-            Debug.Log(LayoutUtility.GetPreferredHeight(optionComponentRectTransform));
+
             topOffset += -30;
         }
         hasFinishedDisplayingOptions = true;

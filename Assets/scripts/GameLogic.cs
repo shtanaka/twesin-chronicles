@@ -28,10 +28,18 @@ public class GameLogic : MonoBehaviour
                 {
                     currentDialogBoxState = dialogOptionSelectorController.GetSelectedState();
                     dialogBoxController.DisplayState(currentDialogBoxState);
+                    dialogOptionSelectorController.ClearDialogOptionSelectorBox();
                 }
                 else if (!dialogOptionSelectorController.IsOpen()) 
                 {
                     dialogOptionSelectorController.DisplayOptionsFromState(currentDialogBoxState);
+                }
+            } else
+            {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                {
+                    currentDialogBoxState = currentDialogBoxState.GetNextState(0);
+                    dialogBoxController.DisplayState(currentDialogBoxState);
                 }
             }
         }

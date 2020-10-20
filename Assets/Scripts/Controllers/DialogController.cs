@@ -85,12 +85,6 @@ public class DialogController : MonoBehaviour
     {
         displayedText += ' ';
 
-        if (isNewLine)
-        {
-            displayedText += '\n';
-            isNewLine = false;
-        }
-
         foreach (char character in word)
         {
             displayedText += character;
