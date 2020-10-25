@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 6e10b9c0483426349a6456948e95055e
   - enabled: 1
-    path: Assets/Scenes/Block Breaker Scene.unity
+    path: Assets/Scenes/Block Breaker.unity
     guid: 1bc81e5b0a698004e8569d728a9e48c1
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
+    path: Assets/Scenes/Dialog Box.unity
     guid: ea0d600bdfb3f4d19b5a25f39013ffe4
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: e04b48f741398ee43acd2575d59a69f1
   m_configObjects: {}
