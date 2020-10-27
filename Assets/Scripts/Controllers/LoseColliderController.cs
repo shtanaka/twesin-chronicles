@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class LoseColliderController : MonoBehaviour
 {
-    [SerializeField] BallController ball;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetInstanceID() == ball.gameObject.GetInstanceID())
+        if (collision.gameObject.name.Contains("ball"))
         {
-            FindObjectOfType<LevelManager>().LoadGameOver();
+            LevelManager levelManager = FindObjectOfType<LevelManager>();
+            Destroy(collision.gameObject);
+            levelManager.RemoveBallFromGame();
+            if (levelManager.GetNumOfBalls() == 0)
+            {
+                levelManager.LoadGameOver();
+            }
         }
     }
 }
