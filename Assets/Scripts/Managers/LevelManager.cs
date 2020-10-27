@@ -1,34 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] int brokenBlocksCount = 0;
-    [SerializeField] private TextMeshProUGUI brokenBlocksCounter;
-    public static LevelManager instance = null;
+    [SerializeField] private int numOfBlocks = 0;
+    [SerializeField] private int numOfBrokenBlocks;
+    [SerializeField] private bool isLevelToEndTheGame = false;
 
-    void Awake()
+    void Update()
     {
-        if (instance == null)
+        if (numOfBrokenBlocks == numOfBlocks)
         {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
+            if (isLevelToEndTheGame)
+            {
+                LoadYouWin();
+            } 
+            else
+            {
+                LoadNextLevel();
+            }
         }
     }
 
-    void Start()
+    public void CountNumOfBlocks()
     {
-        brokenBlocksCounter.SetText(brokenBlocksCount.ToString());  
+        numOfBlocks++;
     }
 
-    public void CountBreakableBlocks()
+    public void CountBrokenBlock()
     {
-        brokenBlocksCount++;
-        brokenBlocksCounter.SetText(brokenBlocksCount.ToString());
+        GameStatusController.instance.IncreaseScore(10);
+        numOfBrokenBlocks++;
+    }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadYouWin()
+    {
+        SceneManager.LoadScene("You Win");
     }
 }

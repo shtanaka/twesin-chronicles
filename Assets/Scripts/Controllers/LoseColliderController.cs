@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoseColliderController : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class LoseColliderController : MonoBehaviour
     {
         if (collision.gameObject.GetInstanceID() == ball.gameObject.GetInstanceID())
         {
-            SceneManager.LoadScene("Game Over");
+            FindObjectOfType<LevelManager>().LoadGameOver();
         }
     }
 }

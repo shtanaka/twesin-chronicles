@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Block Breaker.unity
     guid: 1bc81e5b0a698004e8569d728a9e48c1
   - enabled: 1
+    path: Assets/Scenes/Block Breaker Level 2.unity
+    guid: 4e011fe7c6426d647a04c18344c769c3
+  - enabled: 1
     path: Assets/Scenes/Dialog Box.unity
     guid: ea0d600bdfb3f4d19b5a25f39013ffe4
   - enabled: 1
     path: Assets/Scenes/Game Over.unity
     guid: e04b48f741398ee43acd2575d59a69f1
+  - enabled: 1
+    path: Assets/Scenes/You Win.unity
+    guid: f5fddc2bc0cb53840938d6e5d67aa09b
   m_configObjects: {}

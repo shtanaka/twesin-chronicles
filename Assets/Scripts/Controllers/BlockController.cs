@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
+    private void Start()
+    {
+        FindObjectOfType<LevelManager>().CountNumOfBlocks();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        LevelManager.instance.CountBreakableBlocks();
+        FindObjectOfType<LevelManager>().CountBrokenBlock();
         Destroy(gameObject);
     }
 }
